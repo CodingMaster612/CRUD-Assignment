@@ -1,10 +1,14 @@
 package com.backend.Entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,7 +32,9 @@ public class User {
  @Column(name="password", nullable = false)
 	String password;
  
- 
+ @OneToMany
+ @JoinColumn(name="product_id", referencedColumnName = "id")
+ private List<Product> illegal;
  
 	
 	public User() {
